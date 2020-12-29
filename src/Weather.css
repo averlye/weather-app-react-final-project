@@ -1,0 +1,89 @@
+.Weather {
+    border: 2px solid lightgray;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 200px;
+    margin-right: 200px;
+    background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+  }
+#city-search {
+    margin: 0 auto;
+    display: inline;
+    margin-top: 30px;
+    border-radius: 19px;
+    padding-left: 10px;
+  }
+input[type="submit"] {
+    display: inline;
+    background: #e3bfbe;
+    border-radius: 19px;
+    cursor: pointer;
+    transition: 180ms;
+    border: 2px solid white;
+    height: 30px;
+  }
+input[type="submit"]:hover {
+    background: #d2c6f1;
+    color: black;
+    border: 2px solid white;
+  }
+button {
+    display: inline;
+    background: #e3bfbe;
+    border-radius: 19px;
+    cursor: pointer;
+    transition: 180ms;
+    height: 30px;
+    width: 220px;
+    border: 2px solid white;
+  }
+button:hover {
+    background: #d2c6f1;
+    color: black;
+    border: 2px solid white;
+  }
+
+h1 {
+    font-size: 35px;
+  }
+ul {
+    margin-top: 24px;
+    list-style: none;
+    font-size: 14px;
+    color: #484749;
+  }
+#date {
+    padding-top: 20px;
+    font-size: 14px;
+  }
+.city-details img {
+    position: relative;
+    font-size: 60px;
+    height: 60px;
+    width: 60px;
+    margin-bottom: 20px;
+  }
+.temperature {
+    font-size: 40px;
+  }
+.units {
+    position: relative;
+    top: -20px;
+    font-size: 13px;
+  }
+.units .active {
+    color: black;
+    cursor: default;
+  }
+.units .active:hover {
+    text-decoration: none;
+  }
+.description {
+    text-transform: capitalize;
+  }
+.flow-right {
+    text-align: right;
+  }
+.flow-left {
+    text-align: left;
+  }
