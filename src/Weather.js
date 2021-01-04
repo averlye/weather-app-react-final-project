@@ -81,7 +81,7 @@ export default function Weather(props) {
 );
 } else {
   const apiKey = "3b0ffc0f73dbf8aed77c35d6e45972de";
-  let city = "Warsaw";
+  let city = props.defaultCity;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
 
