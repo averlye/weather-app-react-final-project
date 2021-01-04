@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
 
-export default function Weather() {
+export default function Weather(props) {
+
   const [ready, setReady] = useState(false);
   const [weatherData, setWeatherData] = useState({ready: false});
 
@@ -18,7 +21,6 @@ export default function Weather() {
       icon: `https://openweathermap.org/img/wn/04d.png`,
       date: `4th January 2021`,
     })
-
   }
 
   if (weatherData.ready) {
@@ -83,7 +85,15 @@ export default function Weather() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
   axios.get(apiUrl).then(handleResponse);
 
-  return "";
+  return (
+    <Loader
+         type="Puff"
+         color="#e3bfbe"
+         height={80}
+         width={80}
+         timeout={5000}
+    />
+  );
 };
 
 }
