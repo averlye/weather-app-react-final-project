@@ -3,6 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner';
+import FormatedDate from "./FormatedDate";
 
 export default function Weather(props) {
 
@@ -19,7 +20,7 @@ export default function Weather(props) {
       humidity: response.data.main.humidity,
       description: response.data.weather[0].description,
       icon: `https://openweathermap.org/img/wn/04d.png`,
-      date: `4th January 2021`,
+      date: new Date(response.data.dt * 1000),
     })
   }
 
@@ -38,7 +39,8 @@ export default function Weather(props) {
             <button>Search for current location</button>
         </form>
         <div className="city-details">
-            <p id="date">{weatherData.date}</p>
+            <p id="date">
+            <FormatedDate date={weatherData.date}/></p>
             <div className="row">
             <div className="col-sm-6">
               <div className="flow-right">
