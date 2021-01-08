@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from 'react-loader-spinner';
 import WeatherInfo from "./WeatherInfo.js";
+import Loader from 'react-loader-spinner';
+
 
 export default function Weather(props) {
 
   const [weatherData, setWeatherData] = useState({ready: false});
-
+  const [city, setCity] = useState(props.defaultCity);
+  
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
@@ -23,16 +23,34 @@ export default function Weather(props) {
     })
   }
 
+  function search() {
+    const apiKey = "3b0ffc0f73dbf8aed77c35d6e45972de";
+    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+    axios.get(apiUrl).then(handleResponse);  
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    //search for a city
+    search()
+  }
+
+  function handleChange(event) {
+    setCity(event.target.value);
+    //access city name
+  }
+
   if (weatherData.ready) {
     return ( 
     <div className="Weather">
-        <form id="form">
+        <form id="form" onSubmit={handleSubmit}>
             <input
             type="text"
             placeholder="Type the city name..."
             id="city-search"
             autoComplete="off"
             width="300px"
+            onChange={handleChange}
             />
             <input type="submit" className="search-button" value="🔎" />
             <button>Search for current location</button>
@@ -41,20 +59,15 @@ export default function Weather(props) {
     </div>
 );
 } else {
-  const apiKey = "3b0ffc0f73dbf8aed77c35d6e45972de";
-  let city = props.defaultCity;
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
-  axios.get(apiUrl).then(handleResponse);
-
+  search()
   return (
-    <Loader
-         type="Puff"
-         color="#e3bfbe"
-         height={80}
-         width={80}
-         timeout={5000}
-    />
-  );
-};
-
+  <Loader
+  type="Puff"
+  color="#e3bfbe"
+  height={80}
+  width={80}
+  timeout={5000}
+/>
+)
+}
 }
