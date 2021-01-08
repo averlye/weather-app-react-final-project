@@ -3,7 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner';
-import FormatedDate from "./FormatedDate";
+import WeatherInfo from "./WeatherInfo.js";
 
 export default function Weather(props) {
 
@@ -37,47 +37,7 @@ export default function Weather(props) {
             <input type="submit" className="search-button" value="🔎" />
             <button>Search for current location</button>
         </form>
-        <div className="city-details">
-            <p id="date">
-            <FormatedDate date={weatherData.date}/></p>
-            <div className="row">
-            <div className="col-sm-6">
-              <div className="flow-right">
-                <h1>{weatherData.city}</h1>
-                <img
-                  src={weatherData.icon}
-                  alt="weather icon"
-                />
-                <span className="temperature">{Math.round(weatherData.temperature)}</span>
-                <span className="units">
-                  <a href=" " className="active">
-                    °C
-                  </a>{" "}
-                  |<a href=" ">°F</a>
-                </span>
-              </div>
-            </div>
-            <div className="col-sm-6">
-              <div className="flow-left">
-                <ul>
-                  <li>
-                    Wind speed: 
-                    <span className="wind-speed"> {weatherData.wind}</span> km/h
-                  </li>
-                  <li>
-                    Humidity:
-                    <span className="humidity"> {weatherData.humidity}</span>%
-                  </li>
-                  <li className="text-capitalize">
-                    <span className="description">
-                      {weatherData.description}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            </div>
-        </div>
+        <WeatherInfo data={weatherData}/>
     </div>
 );
 } else {
