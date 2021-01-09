@@ -63,21 +63,6 @@ ul {
     width: 60px;
     margin-bottom: 20px;
   }
-.temperature {
-    font-size: 40px;
-  }
-.units {
-    position: relative;
-    top: -20px;
-    font-size: 13px;
-  }
-.units .active {
-    color: black;
-    cursor: default;
-  }
-.units .active:hover {
-    text-decoration: none;
-  }
 .description {
     text-transform: capitalize;
   }
@@ -86,4 +71,12 @@ ul {
   }
 .flow-left {
     text-align: left;
+  }
+  .temperature {
+    font-size: 40px;
+  }
+.units {
+    position: relative;
+    top: -20px;
+    font-size: 13px;
   }
