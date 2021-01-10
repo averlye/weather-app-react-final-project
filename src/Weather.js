@@ -32,44 +32,40 @@ export default function Weather(props) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    //search for a city
     search()
   }
 
   function handleChange(event) {
     setCity(event.target.value);
-    //access city name
   }
 
   if (weatherData.ready) {
     return ( 
     <div className="Weather">
-        <form id="form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <input
             type="text"
             placeholder="Type the city name..."
-            id="city-search"
             autoComplete="off"
             width="300px"
             onChange={handleChange}
             />
             <input type="submit" className="search-button" value="🔎" />
-            <button>Search for current location</button>
         </form>
         <WeatherInfo data={weatherData}/>
         <WeatherForecast city={weatherData.city} />
     </div>
 );
-} else {
-  search()
-  return (
-  <Loader
-  type="Puff"
-  color="#e3bfbe"
-  height={80}
-  width={80}
-  timeout={5000}
-/>
-)
-}
+  } else {
+    search()
+    return (
+      <Loader
+      type="Puff"
+      color="#e3bfbe"
+      height={80}
+      width={80}
+      timeout={5000}
+      />
+    )
+  }
 }
