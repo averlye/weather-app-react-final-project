@@ -3,9 +3,24 @@
     border-radius: 10px;
     text-align: center;
     margin-left: 200px;
-    margin-right: 200px;
+    margin-right: 230px;
     background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
   }
+  .WeatherForecast {
+    border-radius: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.35);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 90px;
+    font-size: 14px;
+    color: #484749;
+}
+
+
+
 #city-search {
     margin: 0 auto;
     display: inline;
@@ -79,4 +94,8 @@ ul {
     position: relative;
     top: -20px;
     font-size: 13px;
+  }
+
+  .center {
+    padding-left: 8px;
   }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 import WeatherInfo from "./WeatherInfo.js";
+import WeatherForecast from "./WeatherForecast.js";
 import Loader from 'react-loader-spinner';
 
 
@@ -56,6 +57,7 @@ export default function Weather(props) {
             <button>Search for current location</button>
         </form>
         <WeatherInfo data={weatherData}/>
+        <WeatherForecast city={weatherData.city} />
     </div>
 );
 } else {
